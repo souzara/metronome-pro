@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrônomo Pro</title>
+    <meta name="description" content="Um metrônomo online preciso e moderno para músicos.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="training.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="theme-switch-wrapper">
+        <button id="theme-toggle" class="theme-btn" aria-label="Alternar Tema">
+            <span class="theme-icon">🕰️</span>
+            <span class="theme-text">Modo Vintage</span>
+        </button>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Metrônomo</h1>
+        </header>
+
+        <main class="metronome-interface">
+            <div class="bpm-display">
+                <span id="bpm-value">120</span>
+                <span class="bpm-label">BPM</span>
+            </div>
+
+            <div class="controls">
+                <div class="slider-container">
+                    <button class="adjust-btn" id="decrease-bpm" aria-label="Diminuir BPM">-</button>
+                    <input type="range" min="40" max="300" value="120" class="bpm-slider" id="bpm-slider">
+                    <button class="adjust-btn" id="increase-bpm" aria-label="Aumentar BPM">+</button>
+                </div>
+
+                <div class="sound-selection">
+                    <label for="sound-type">Som:</label>
+                    <select id="sound-type" class="sound-select">
+                        <option value="digital">Digital (Beep)</option>
+                        <option value="click">Mecânico (Click)</option>
+                        <option value="woodblock">Madeira (Woodblock)</option>
+                    </select>
+                </div>
+
+                <div class="accent-toggle-wrapper">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="accent-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <label for="accent-toggle" class="toggle-label">Acentuar 1ª batida</label>
+                </div>
+
+                <div class="time-signature">
+                    <label for="beats-per-measure">Batidas por compasso:</label>
+                    <div class="stepper">
+                        <button class="stepper-btn" id="decrease-beats">-</button>
+                        <span id="beats-display">4</span>
+                        <button class="stepper-btn" id="increase-beats">+</button>
+                    </div>
+                </div>
+
+                <button id="tap-btn" class="tap-btn">TAP TEMPO</button>
+
+                <button id="start-stop-btn" class="start-btn">Iniciar</button>
+            </div>
+
+            <div class="visualizer">
+                <div class="beat-indicator" id="beat-1"></div>
+                <div class="beat-indicator" id="beat-2"></div>
+                <div class="beat-indicator" id="beat-3"></div>
+                <div class="beat-indicator" id="beat-4"></div>
+            </div>
+        </main>
+
+        <!-- Training Mode Panel -->
+        <div class="training-panel" id="training-panel">
+            <div class="training-header">
+                <h2>🎯 Modo Treino</h2>
+                <button class="collapse-btn" id="collapse-training">◀</button>
+            </div>
+
+            <div class="training-content">
+                <!-- Session Timer -->
+                <div class="training-section">
+                    <div class="section-header">
+                        <h3>⏱️ Timer de Sessão</h3>
+                        <label class="toggle-switch small">
+                            <input type="checkbox" id="session-timer-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="section-content">
+                        <div class="input-group">
+                            <label for="session-duration">Duração (minutos):</label>
+                            <input type="number" id="session-duration" min="1" max="60" value="5">
+                        </div>
+                        <div class="timer-display" id="timer-display">--:--</div>
+                    </div>
+                </div>
+
+                <!-- BPM Progression -->
+                <div class="training-section">
+                    <div class="section-header">
+                        <h3>📈 Progressão de BPM</h3>
+                        <label class="toggle-switch small">
+                            <input type="checkbox" id="bpm-progression-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="section-content">
+                        <div class="input-group">
+                            <label for="start-bpm">BPM Inicial:</label>
+                            <input type="number" id="start-bpm" min="40" max="300" value="60">
+                        </div>
+                        <div class="input-group">
+                            <label for="end-bpm">BPM Final:</label>
+                            <input type="number" id="end-bpm" min="40" max="300" value="120">
+                        </div>
+                        <div class="input-group">
+                            <label for="interval-time">Intervalo (segundos):</label>
+                            <input type="number" id="interval-time" min="5" max="300" value="60">
+                        </div>
+                        <div class="input-group">
+                            <label for="bpm-increment">Incremento (+BPM):</label>
+                            <input type="number" id="bpm-increment" min="1" max="50" value="5">
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="bpm-progress"></div>
+                        </div>
+                        <div class="progress-text" id="bpm-progress-text">BPM: --</div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="training-section">
+                    <div class="section-header">
+                        <h3>📊 Estatísticas</h3>
+                    </div>
+                    <div class="section-content stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Compassos:</span>
+                            <span class="stat-value" id="bar-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Tempo:</span>
+                            <span class="stat-value" id="elapsed-time">00:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Toggle Button (when collapsed) -->
+        <button class="training-toggle-btn" id="training-toggle-btn">
+            <span>🎯</span>
+        </button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
