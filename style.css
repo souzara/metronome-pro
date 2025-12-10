@@ -32,13 +32,16 @@ body {
     background-color: var(--bg-color);
     background-image: var(--bg-pattern);
     color: var(--text-color);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: background-color 0.5s, color 0.5s;
+    padding-bottom: 80px;
+    /* Space for footer */
 }
 
 /* Theme Switcher */
@@ -524,8 +527,27 @@ input:checked+.slider:before {
     fill: currentColor;
 }
 
-/* Adjust body/container to not be covered by footer */
-/* We can add padding-bottom to the main container or body */
-body {
-    padding-bottom: 60px;
+/* Body padding moved to main body rule */
+
+@media (max-width: 600px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    .btn-text {
+        display: none;
+    }
+
+    .footer-text {
+        display: inline;
+        font-size: 0.75rem;
+    }
+
+    .app-footer-bar {
+        padding: 0.5rem 1rem;
+    }
+
+    .github-btn {
+        padding: 0.4rem;
+    }
 }
