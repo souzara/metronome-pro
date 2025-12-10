@@ -21,9 +21,7 @@
     transform: translateX(100%);
 }
 
-body.theme-vintage .training-panel {
-    border-left: 4px double var(--primary-color);
-}
+
 
 .training-header {
     display: flex;
@@ -65,9 +63,7 @@ body.theme-vintage .training-panel {
     transform: scale(1.1);
 }
 
-body.theme-vintage .collapse-btn {
-    border-radius: 4px;
-}
+
 
 .training-content {
     padding: 1.5rem;
@@ -83,11 +79,7 @@ body.theme-vintage .collapse-btn {
     border: 1px solid var(--border-color);
 }
 
-body.theme-vintage .training-section {
-    background: rgba(139, 69, 19, 0.05);
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
-}
+
 
 .section-header {
     display: flex;
@@ -154,10 +146,7 @@ body.theme-vintage .training-section {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
 }
 
-body.theme-vintage .input-group input[type="number"] {
-    background: rgba(139, 69, 19, 0.05);
-    border-radius: 4px;
-}
+
 
 .timer-display {
     font-size: 2rem;
@@ -170,10 +159,7 @@ body.theme-vintage .input-group input[type="number"] {
     font-variant-numeric: tabular-nums;
 }
 
-body.theme-vintage .timer-display {
-    background: rgba(139, 69, 19, 0.1);
-    border-radius: 4px;
-}
+
 
 .progress-bar-container {
     width: 100%;
@@ -192,9 +178,7 @@ body.theme-vintage .timer-display {
     border-radius: 4px;
 }
 
-body.theme-vintage .progress-bar {
-    background: var(--primary-color);
-}
+
 
 .progress-text {
     font-size: 0.9rem;
@@ -217,10 +201,7 @@ body.theme-vintage .progress-bar {
     border-radius: 6px;
 }
 
-body.theme-vintage .stat-item {
-    background: rgba(139, 69, 19, 0.05);
-    border-radius: 4px;
-}
+
 
 .stat-label {
     font-size: 0.85rem;
@@ -265,10 +246,7 @@ body.theme-vintage .stat-item {
     display: flex;
 }
 
-body.theme-vintage .training-toggle-btn {
-    border-radius: 4px;
-    border: 2px solid var(--primary-color);
-}
+
 
 @media (max-width: 768px) {
     .training-panel {

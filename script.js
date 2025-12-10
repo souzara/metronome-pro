@@ -22,9 +22,7 @@ class Metronome {
         this.increaseBeatsBtn = document.getElementById('increase-beats');
         this.startStopBtn = document.getElementById('start-stop-btn');
         this.visualizerContainer = document.querySelector('.visualizer');
-        this.themeToggleBtn = document.getElementById('theme-toggle');
-        this.themeIcon = this.themeToggleBtn.querySelector('.theme-icon');
-        this.themeText = this.themeToggleBtn.querySelector('.theme-text');
+
         this.tapBtn = document.getElementById('tap-btn');
         this.soundSelect = document.getElementById('sound-type');
         this.accentToggle = document.getElementById('accent-toggle');
@@ -68,14 +66,11 @@ class Metronome {
         this.initEventListeners();
         this.updateVisualizerDots();
 
-        // Load saved theme
-        if (localStorage.getItem('metronome-theme') === 'vintage') {
-            this.toggleTheme(true);
-        }
+
     }
 
     initEventListeners() {
-        this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+
 
         this.startStopBtn.addEventListener('click', () => this.startStop());
 
@@ -207,20 +202,7 @@ class Metronome {
         this.bpmDisplay.textContent = this.tempo;
     }
 
-    toggleTheme(forceVintage = false) {
-        const body = document.body;
-        if (forceVintage || !body.classList.contains('theme-vintage')) {
-            body.classList.add('theme-vintage');
-            this.themeIcon.textContent = '🎹';
-            this.themeText.textContent = 'Modo Moderno';
-            localStorage.setItem('metronome-theme', 'vintage');
-        } else {
-            body.classList.remove('theme-vintage');
-            this.themeIcon.textContent = '🕰️';
-            this.themeText.textContent = 'Modo Vintage';
-            localStorage.setItem('metronome-theme', 'modern');
-        }
-    }
+
 
     updateVisualizerDots() {
         this.visualizerContainer.innerHTML = '';
