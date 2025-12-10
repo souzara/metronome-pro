@@ -40,8 +40,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     transition: background-color 0.5s, color 0.5s;
-    padding-bottom: 80px;
-    /* Space for footer */
+    padding-bottom: 0;
 }
 
 /* Theme Switcher */
@@ -461,9 +460,8 @@ input:checked+.slider:before {
 
 /* FOOTER BAR */
 .app-footer-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    /* position: fixed; removed for flow layout */
+    margin-top: auto;
     width: 100%;
     background: #1e293b;
     /* Dark slate */
