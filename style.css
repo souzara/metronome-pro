@@ -582,3 +582,13 @@ body.theme-vintage .beat-indicator.strong {
     background: var(--accent-color);
     box-shadow: none;
 }
+
+/* FOOTER */
+.app-footer {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+    letter-spacing: 1px;
+    font-family: var(--font-family);
+}
